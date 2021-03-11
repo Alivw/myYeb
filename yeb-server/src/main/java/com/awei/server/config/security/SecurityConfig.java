@@ -33,16 +33,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private IAdminService adminService;
 
-    @Qualifier("myUserDetailService")
-    @Autowired
-    private UserDetailsService userDetailsService;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
 
 
-    /*@Override
+    @Bean
+    @Override
     protected UserDetailsService userDetailsService() {
         //获取登录用户信息
         return username -> {
@@ -53,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             return null;
         };
 
-    }*/
+    }
 
 
     @Override
