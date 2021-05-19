@@ -12,5 +12,4 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2021-03-09
  */
 public interface AdminMapper extends BaseMapper<Admin> {
-
 }

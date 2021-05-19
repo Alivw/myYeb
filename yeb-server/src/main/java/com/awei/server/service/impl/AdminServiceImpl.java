@@ -3,6 +3,7 @@ package com.awei.server.service.impl;
 import com.awei.server.config.security.JwtTokenUtil;
 import com.awei.server.mapper.AdminMapper;
 import com.awei.server.pojo.Admin;
+import com.awei.server.pojo.Menu;
 import com.awei.server.pojo.RespBean;
 import com.awei.server.service.IAdminService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -19,6 +20,7 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -95,5 +97,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     public Admin getAdminByUsername(String username) {
         return adminMapper.selectOne(new QueryWrapper<Admin>().eq("username", username));
     }
+
 
 }

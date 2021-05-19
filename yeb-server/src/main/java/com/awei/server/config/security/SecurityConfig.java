@@ -63,6 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                // 允许访问
+                .antMatchers("/login","logout").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .headers()
@@ -81,8 +83,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         //放行静态资源
         web.ignoring().antMatchers(
-                "/login",
-                "/logout",
+//                "/login",
+//                "/logout",
                 "/css/**",
                 "/js/**",
                 "/index.html",
